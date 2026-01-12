@@ -552,10 +552,6 @@ document.addEventListener("DOMContentLoaded", () => {
               m5Card.hidden = false;
               animateCardIn(m5Card);
               break;
-
-            default:
-              alert("🎉 Fin du jeu !");
-              break;
           }
         },
       });
@@ -1207,3 +1203,4 @@ if (btnReplay) {
     });
   });
 }
+
