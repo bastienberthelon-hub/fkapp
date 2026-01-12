@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake News</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/cge3bca.css" />
+    <link rel="stylesheet" href="playerstyle.css" />
+  </head>
+
+  <body>
+    <!-- POPUP CRÉDITS -->
+    <div class="popup popup--credits popup--hidden">
+      <div class="popup__content--credit">
+        <img src="Assets/croix.svg" class="popup__close" />
+        <h2>Crédits</h2>
+        <p>
+          <strong>Design & development :</strong> Bastien Berthelon
+          <strong>Sound :</strong> mansardian, Jaszunio15
+        </p>
+      </div>
+    </div>
+
+    <!-- APP -->
+    <div class="app">
+      <div class="app__pattern"></div>
+
+      <!-- BRANDING -->
+      <div class="app__branding">
+        <img src="Assets/FKWHITE.svg" alt="Fake News" />
+        <img src="Assets/LogoLive.svg" class="app__branding-live" alt="Live" />
+      </div>
+
+      <!-- Icônes -->
+      <div class="app__sound">
+        <img
+          src="Assets/pson.svg"
+          class="app__sound-icon app__sound-icon--on"
+        />
+        <img
+          src="Assets/pmute.svg"
+          class="app__sound-icon app__sound-icon--off"
+        />
+        <img
+          src="Assets/pinfo.svg"
+          class="app__sound-icon app__sound-icon--info"
+        />
+      </div>
+
+      <!-- ÉTAPES DU JEU -->
+      <section class="players">
+        <div class="players__card players__card--players">
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+          <h2 class="players__title">Combien de journalistes participent ?</h2>
+          <div class="players__choices">
+            <button class="players__choice" data-value="2">2</button>
+            <button class="players__choice" data-value="4">4</button>
+            <button class="players__choice" data-value="6">6</button>
+          </div>
+          <button class="players__submit players__submit--players">
+            Confirmer
+          </button>
+        </div>
+
+        <!-- Noms des équipes -->
+        <div class="players__card players__card--teams" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title">Identité des équipes</h2>
+          <div class="players__teams">
+            <input
+              id="team1"
+              class="players__input"
+              placeholder="Nom de l'équipe 1"
+            />
+            <input
+              id="team2"
+              class="players__input"
+              placeholder="Nom de l'équipe 2"
+            />
+          </div>
+          <button
+            class="players__submit players__submit--teams players__submit--inscription"
+          >
+            S'inscrire à l'examen
+          </button>
+        </div>
+
+        <!-- M1 -->
+        <div class="players__card players__card--m1" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+          <h2 class="players__title m1__title">
+            <strong>Épreuve 1</strong>
+          </h2>
+          <h3 class="FK__subtitle">Fake or Not Fake</h3>
+          <h3 id="m1-teams-name"></h3>
+          <div class="code-phase">
+            <input
+              type="number"
+              class="players__input code-input"
+              placeholder="Entrez le code"
+            />
+            <button class="validate-code">Valider le code</button>
+          </div>
+          <div class="article-phase" hidden>
+            <p class="article-text"></p>
+            <div class="players__choices manche-choices">
+              <button class="players__choice choice-fake">Fake</button>
+              <button class="players__choice choice-real">Not Fake</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCORE UNIQUE -->
+        <div class="players__card players__card--score" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title">Résultats</h2>
+
+          <div class="scoreboard">
+            <div class="score-row">
+              <span id="score-team1" class="score-team">Équipe 1</span>
+              <span id="score-val1" class="score-value">0</span>
+            </div>
+            <div class="score-row">
+              <span id="score-team2" class="score-team">Équipe 2</span>
+              <span id="score-val2" class="score-value">0</span>
+            </div>
+          </div>
+
+          <button class="players__submit next-manche">Continuer</button>
+        </div>
+
+        <!-- M2 -->
+        <div class="players__card players__card--m2" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title m1__title">Épreuve 2</h2>
+          <h3 class="FK__subtitle">Trouver la Fake News</h3>
+          <h3 id="m2-teams-name"></h3>
+          <div class="code-phase">
+            <div class="codes-inputs">
+              <input
+                type="number"
+                class="players__input code-input code1"
+                placeholder="Code 1"
+              />
+              <input
+                type="number"
+                class="players__input code-input code2"
+                placeholder="Code 2"
+              />
+            </div>
+            <button class="validate-code validate-M2code">
+              Valider les codes
+            </button>
+          </div>
+          <div class="article-phase" hidden>
+            <div class="article-slider">
+              <div class="article-slide active">
+                <p class="article-text article1"></p>
+              </div>
+              <div class="article-slide">
+                <p class="article-text article2"></p>
+              </div>
+            </div>
+            <div class="article-indicators">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+            </div>
+            <button class="players__submit validate-fake">Fake News</button>
+          </div>
+        </div>
+
+        <!-- M3 -->
+        <div class="players__card players__card--m3" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title m1__title">Épreuve 3</h2>
+          <h3 class="FK__subtitle">Fake or Not Fake</h3>
+          <h3 id="m3-teams-name"></h3>
+
+          <div class="article-phase">
+            <p class="article-text">Chargement de l'article...</p>
+            <div class="players__choices manche-choices">
+              <button class="players__choice choice-fake">Fake</button>
+              <button class="players__choice choice-real">Not Fake</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- M4 -->
+        <div class="players__card players__card--m4" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title m1__title">Épreuve 4</h2>
+          <h3 class="FK__subtitle">IA ou pas IA ?</h3>
+          <h3 class="players__subtitle" id="m4-teams-name"></h3>
+
+          <div class="m4t1__content article-phase">
+            <img src="" alt="Image mystère" class="media-image" id="m4-img" />
+            <div class="players__choices manche-choices">
+              <button class="players__choice choice-IA">IA</button>
+              <button class="players__choice choice-IA">Not IA</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- M5 -->
+        <div class="players__card players__card--m5" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title m1__title">Épreuve 5</h2>
+          <h3 class="FK__subtitle">À toi de jouer !</h3>
+
+          <div class="code-phase">
+            <input
+              type="number"
+              class="players__input code-input"
+              placeholder="Entrez le code"
+            />
+            <div class="buttons-group">
+              <button class="validate-code validate-codeM5">Valider</button>
+              <button class="skip-final">Passer</button>
+            </div>
+          </div>
+          <div class="article-phase" hidden>
+            <p class="article-text"></p>
+            <div class="buttons-groups">
+              <button class="reencode">Réencoder</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- M5WIN -->
+        <div class="players__card players__card--m5win" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title">Qui à remporte cette épreuve ?</h2>
+          <div class="m5win__choices">
+            <button class="players__choice choice-team1"></button>
+            <button class="players__choice choice-team2"></button>
+          </div>
+        </div>
+
+        <!-- FINAL -->
+        <div class="players__card players__card--final" hidden>
+          <img
+            src="Assets/icon_dott_red.svg"
+            alt=""
+            class="decor decor--top-left"
+          />
+          <img
+            src="Assets/icon_dott_red_b.svg"
+            alt=""
+            class="decor decor--bottom-right"
+          />
+
+          <h2 class="players__title" id="final-message">Félicitations !</h2>
+
+          <div class="scoreboard final-scoreboard">
+            <div class="score-row">
+              <span id="final-team1" class="score-team">Équipe 1</span>
+              <span id="final-score1" class="score-value">0</span>
+            </div>
+            <div class="score-row">
+              <span id="final-team2" class="score-team">Équipe 2</span>
+              <span id="final-score2" class="score-value">0</span>
+            </div>
+          </div>
+
+          <div class="players__choices final-buttons">
+            <button class="players__choice choice-fmenu">Ressayer</button>
+            <button class="players__choice choice-freplay">Continuer</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="playerscript.js"></script>
+  </body>
+</html>

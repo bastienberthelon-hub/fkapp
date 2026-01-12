@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake News</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/cge3bca.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- POPUP CRÉDITS -->
+    <div class="popup popup--credits popup--hidden">
+      <div class="popup__content--credit">
+        <img src="Assets/croix.svg" class="popup__close" />
+        <h2>Crédits</h2>
+        <p>
+          <strong>Design & development :</strong> Bastien Berthelon<br />
+          <strong>Sound :</strong> mansardian, Jaszunio15
+        </p>
+      </div>
+    </div>
+
+    <!-- APP -->
+    <div class="app">
+      <div class="app__pattern"></div>
+
+      <!-- Icônes -->
+      <div class="app__sound">
+        <img src="Assets/son.svg" class="app__sound-icon app__sound-icon--on" />
+        <img
+          src="Assets/mute.svg"
+          class="app__sound-icon app__sound-icon--off"
+        />
+        <img
+          src="Assets/info.svg"
+          class="app__sound-icon app__sound-icon--info"
+        />
+      </div>
+    </div>
+
+    <!-- HOME -->
+    <section class="app__screen app__screen--home">
+      <div class="app__content">
+        <img src="Assets/Icon.svg" class="app__icon" aria-hidden="true" />
+        <img src="Assets/Logo.svg" class="app__logo" alt="Fake News" />
+
+        <button type="button" class="app__button app__button--start">
+          Lancer la diffusion
+        </button>
+
+        <p class="app__slogan">
+          Informer,
+          <span class="app__slogan--red">c'est aussi</span> manipuler.
+        </p>
+      </div>
+    </section>
+
+    <!-- RÈGLES -->
+    <div class="popup popup--rules popup--hidden">
+      <div class="popup__content popup__content--message">
+        <img
+          src="Assets/croix.svg"
+          class="popup__close popup__close--rules"
+          alt="Fermer"
+        />
+
+        <div class="rules__step rules__step--active" data-step="1">
+          <h2>Message officiel<br />Fédération des Journalistes</h2>
+          <div class="popup__text">
+            <p>
+              La Fédération des Journalistes Professionnels vous convoque à sa
+              <strong>session d'examen officielle</strong>.
+            </p>
+            <p>
+              Cette épreuve se déroulera en <strong>cinq manches</strong> et
+              évaluera votre capacité à analyser et diffuser l'information de
+              manière responsable.
+            </p>
+            <p>
+              Seuls les candidats les plus rigoureux obtiendront leur
+              <strong>carte de presse</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="rules__step" data-step="2">
+          <h2>But de l'examen</h2>
+          <div class="popup__text">
+            <p>
+              <strong>Gagnez le plus de manches</strong> afin de réussir
+              l'examen et <strong> votre carte de presse officielle.</strong>
+            </p>
+            <p>
+              Chaque manche remportée permet d'obtenir un
+              <strong>jeton point</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="rules__step" data-step="3">
+          <h2>Préparation de l'examen</h2>
+          <div class="popup__text">
+            <p>
+              <strong>1.</strong> le plateau au
+              <strong>centre de la table.</strong>
+            </p>
+            <p>
+              <strong>2.</strong> Placez <strong>les deux tas</strong> de cartes
+              à proximité.
+            </p>
+            <p>
+              <strong>3.</strong> Formez deux équipes
+              <strong>équilibrées.</strong>
+            </p>
+            <p>
+              <strong>4.</strong> Lancez l'application sur
+              <strong>un seul appareil.</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="rules__step" data-step="4">
+          <h2>Déroulement de l'examen</h2>
+          <div class="popup__text">
+            <p><strong>Épreuve 1 :</strong> Fake or Not Fake</p>
+            <p><strong>Épreuve 2 :</strong> Trouver la Fake News</p>
+            <p><strong>Épreuve 3 :</strong> Le vrai du faux</p>
+            <p><strong>Épreuve 4 :</strong> IA ou pas IA ?</p>
+            <p><strong>Épreuve 5 :</strong> À toi de jouer</p>
+          </div>
+        </div>
+
+        <button class="app__button app__button--popup">
+          Accéder au dossier
+        </button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
